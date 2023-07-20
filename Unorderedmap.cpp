@@ -2,24 +2,13 @@
 #include<unordered_map>
 using namespace std;
 int main(){
-    unordered_map<string,int> um;
-    um["HI"]=10;
-    um["my"]=20;
-    um["name"]=30;
-    if(um.find("HI")!=um.end()){
-        cout<<"the key is present\n";
-        
-    }else{
-        cout<<"The key is present\n";
-
+    unordered_map<string,int> up;
+    up["himanshu gusain"] = 10 ;
+    up["radhe radhe"]=20;
+    up["roger that"]=30;
+    for(auto x : up){
+        cout<<x.first<<"  "<<x.second<<endl;
     }
-    auto it = um.find("Hi");
-    if(it!=um.end()){
-        cout<<"key is "<<it->first<<", "
-        <<"value is"<<it->second;
-    }
-
-
 
 return 0;
 }
