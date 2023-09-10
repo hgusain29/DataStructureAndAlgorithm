@@ -12,7 +12,10 @@ int min = i ;
     swap(arr[min],arr[i]);
 }
 for(int i = 0 ; i < n ; i++){
-cout<<arr[i]<<",";
+cout<<arr[i];
+if(i!=n-1){
+    cout<<",";
+}
 }
 }
 
