@@ -11,6 +11,7 @@ int min = i ;
     }
     swap(arr[min],arr[i]);
 }
+cout<<"Sorted Array is : "<<endl;
 for(int i = 0 ; i < n ; i++){
 cout<<arr[i];
 if(i!=n-1){
