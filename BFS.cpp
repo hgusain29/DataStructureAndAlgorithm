@@ -34,6 +34,7 @@ void iterate(vector<int>adj[],int V  )
         {
             BFS(adj,i,visited) ;
         }
+        cout<<endl;
     }
 }
              
