@@ -1,31 +1,30 @@
 #include<bits/stdc++.h>
-#include<vector>
 using namespace std;
 
-
-void Binarysearch(vector<int> arr, int n , int target)
+int Binarysearch(vector<int> arr, int n , int target,int low,int high)
 {
-    int low = 0 ;
-    int high = n-1 ;
+    /*int low = 0 ;
+    int high = n-1 ;*/
      
     while(low<=high)
     {
         int mid = (low+high)/2;
         if(arr[mid]==target)
         {
-            cout<<endl;
-            cout<<mid;
+            cout<< mid;
         }
         if(target>arr[mid])
         {
-            low=mid+1;
+          
+            return Binarysearch(arr ,  n ,  target , mid+1 , high );
         }
         else
         {
-            high = mid-1;
+            return Binarysearch(arr,  n ,  target , low , mid-1 );
         }
 
     } 
+    return 0;
 }
 
 int main()
@@ -41,8 +40,10 @@ int main()
     int target;
     cout<<"Target";
     cin>>target;
-    Binarysearch(arr , n , target);
+    int low = 0 ;
+    int high = n-1 ;
+    Binarysearch(arr , n , target,low,high);
 
 
     return 0;
-}
+}    
