@@ -1,12 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
-void BFS(vector<int> adj[],int V,int s )
+void BFS(vector<int> adj[],int s ,bool visited[] )
 {
-    bool visited[V] ;
-    for(int i = 0 ; i < V ; i++)
-    {
-        visited[i] = false ;
-    }
+    
     queue<int> q ;
     visited[s] = true ;
     q.push(s) ;
@@ -25,25 +21,31 @@ void BFS(vector<int> adj[],int V,int s )
           }
     }
 }
+void iterate(vector<int>adj[],int V  )
+{
+    bool visited[V] ;
+    for(int i = 0 ; i < V ; i++)
+    {
+        visited[i] = false ;
+    }
+    for(int i = 0 ; i < V ; i++)
+    {
+        if(visited[i]==false)
+        {
+            BFS(adj,i,visited) ;
+        }
+    }
+}
              
 void addEdge(vector<int> adj[],int u ,int v)
 {
     adj[u].push_back(v);
     adj[v].push_back(u);
 }
-void printGraph(vector<int> adj[], int V)
-{
-	for (int v = 0; v < V; ++v) {
-		cout << "\n Adjacency list of vertex " << v
-			<< "\n head ";
-		for (auto x : adj[v])
-			cout << "-> " << x;
-		printf("\n");
-	}
-}
+
 int main()
 {
-    int U = 5 ;
+    int U = 8 ;
     vector<int> adj[U];
     addEdge(adj,0,1);
     addEdge(adj,0,2);
@@ -52,9 +54,12 @@ int main()
     addEdge(adj,2,3);
     addEdge(adj,2,4);
     addEdge(adj,3,4);
-    printGraph(adj,U);
-    cout<<endl<<endl;
-     BFS(adj, U , 0 );
+    addEdge(adj,5,6);
+    addEdge(adj,5,7);
+    addEdge(adj,6,7);
+    cout << "Following is Breadth First Traversal: "<< endl; 
+     iterate(adj, U );
+
     return 0;
 
   
